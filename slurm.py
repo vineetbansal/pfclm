@@ -5,8 +5,8 @@ from flask import render_template
 from flask.json import dumps
 
 
-def submit(i, j, t=30):
-    s = render_template('sample.sbatch', i=i, j=j, t=t)
+def submit(swe, runoff):
+    s = render_template('sbatch.sh', swe=swe, runoff=runoff)
     f = tempfile.NamedTemporaryFile(delete=False)
     f.write(s.encode('utf8'))
     f.close()

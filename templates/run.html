@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Job {{ runid }} Running</title>
+	<meta http-equiv="refresh" content="5" />
+  <style>
+    html, body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      margin: 4em;
+    }
+
+    .main {
+      background: white;
+      border: solid 1px #c0c0c0;
+      border-radius: 8px;
+      padding: 2em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="main">
+  <h1>Run {{ runid }} submitted</h1>
+  <p>SWE plot= {{ swe }} Runoff Plot= {{ runoff }}</p>
+  <p>Please wait while job runs. Current Status: {{state}}</p>
+
+  {% if state=='COMPLETED' %}
+  <p><a href="{{ url_for('result', run_id=runid) }}" >click here for results</a></p>
+  {% endif %}
+
+  </section>
+
+</body>
+
+</html>
+
